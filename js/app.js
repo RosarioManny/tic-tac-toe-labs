@@ -1,7 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
 
 /*---------------------------- Variables (state) ----------------------------*/
-let board = ['', '', '', '', '', '', '', '', ''];
+let board = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 let turn = "X";
 let tie = false;
 let winner = false; 
@@ -9,8 +9,8 @@ let winner = false;
 const squareEls = document.querySelectorAll(".sqr");
 const messageEl = document.querySelector("#message");
 /*-------------------------------- Functions --------------------------------*/
-const init = (event) => {
-    render(event)
+const init = () => {
+    render()
 };
 
 const updateBoard = () => {
@@ -21,7 +21,6 @@ const updateBoard = () => {
 } 
 // console.log(updateBoard(board));
 
-tie = true
 
 const updateMessage = (messageEl) => {
     if (tie === false && winner === false) {
@@ -34,10 +33,22 @@ const updateMessage = (messageEl) => {
     console.log(messageEl)
 }
 
+const winningCombos = [
+    [0, 1, 2],
+    [3, 4, 5], 
+    [6, 7, 8],
+    [0, 3, 6], 
+    [1, 4, 7],
+    [2, 5, 8], 
+    [0, 4, 7],
+    [2, 4, 6],
+]
+
 const render = () => {
     updateBoard()
     updateMessage()
 }
+
 console.log(render())
 /*----------------------------- Event Listeners -----------------------------*/
 
