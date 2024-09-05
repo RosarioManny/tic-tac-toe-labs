@@ -1,7 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
 
 /*---------------------------- Variables (state) ----------------------------*/
-let board = ['X', '', 'O', '', '', 'X', '', 'O', ''];
+let board = ['', '', '', '', '', '', '', '', ''];
 let turn = "X";
 let tie = false;
 let winner = false; 
@@ -13,21 +13,32 @@ const init = (event) => {
     render(event)
 };
 
-const render = () => {
-}
-
-const updateBoard = (boardEl) => {
-    for(let i = 0; i < boardEl.length; i++) {
-        squareEls[i].textContent = boardEl[i];
-        console.log(squareEls[i]);
+const updateBoard = () => {
+    for(let idx = 0; idx < board.length; idx++) {
+        squareEls[idx].textContent = board[idx];
+        console.log(squareEls[idx]);
     }
 } 
-console.log(updateBoard(board));
+// console.log(updateBoard(board));
 
-const updateMessage = () => {
+tie = true
+
+const updateMessage = (messageEl) => {
+    if (tie === false && winner === false) {
+        messageEl = "Next Player"
+    } else if (tie === true && winner === false) {
+        messageEl = "Tie Game"
+    } else {
+        messageEl = "You Won"
+    }
+    console.log(messageEl)
 }
 
-//console.log(updateBoard("O"))
+const render = () => {
+    updateBoard()
+    updateMessage()
+}
+console.log(render())
 /*----------------------------- Event Listeners -----------------------------*/
 
 
