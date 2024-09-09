@@ -9,7 +9,7 @@ const winningCombos = [
    [0, 3, 6],
    [1, 4, 7],
    [2, 5, 8],
-   [0, 4, 7],
+   [0, 4, 8],
    [2, 4, 6],
 ]
 // /*---------------------------- Variables (state) ----------------------------*/
@@ -82,7 +82,7 @@ const switchPlayerTurn = () => {
    if (turn === 'X') {
        turn = 'O'
    } else {
-       turn = "X"
+       turn = 'X'
    }
 }
 
